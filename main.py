@@ -5,9 +5,7 @@ import pickle
 import pandas as pd
 
 # Load the saved Random Forest model
-model_filename = 'random_forest.pkl'
-with open(model_filename, 'rb') as file:
-    model = pickle.load(file)
+model = pickle.load(open("random_forest.pkl","rb"))
 
 # Function to predict churn
 def predict_churn(data):
