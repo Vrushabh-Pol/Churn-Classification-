@@ -1,13 +1,15 @@
-
-
 import streamlit as st
 import pickle
 import pandas as pd
 
 # Load the saved Random Forest model
 model_filename = 'random_forest.pkl'
-with open(model_filename, 'rb') as file:
-    model = pickle.load(file)
+try:
+    with open(model_filename, 'rb') as file:
+        model = pickle.load(file)
+except Exception as e:
+    st.error(f"Error loading the model: {e}")
+    st.stop()
 
 # Function to predict churn
 def predict_churn(data):
