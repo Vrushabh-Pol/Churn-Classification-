@@ -1,13 +1,10 @@
-
-
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 
 # Load the saved Random Forest model
-model_filename = 'random_forest.pkl'
-with open(model_filename, 'rb') as file:
-    model = pickle.load(file)
+model_filename = 'model1.pkl'
+model = joblib.load(model_filename)
 
 # Function to predict churn
 def predict_churn(data):
